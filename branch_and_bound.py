@@ -1,6 +1,4 @@
-import networkx as nx
 import heapq as hq
-import numpy as np
 
 # Implementação do Branch and Bound
 

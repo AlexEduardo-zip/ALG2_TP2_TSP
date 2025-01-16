@@ -1,29 +1,6 @@
-# Implementação do algoritmo de Christofides
 import networkx as nx
-import matplotlib.pyplot as plt
-
-
-# Funções auxiliares
-def plota_grafo(grafo):
-    """
-    Função para plotar o grafo, exibindo os pesos das arestas.
-    """
-    posicao = nx.spring_layout(grafo)  # Layout para distribuir os nós de forma legível
-    nx.draw(grafo, posicao, with_labels=True, node_color='skyblue', node_size=2000, font_size=10, font_weight='bold')
-
-    # Desenha os pesos nas arestas
-    rotulos_arestas = nx.get_edge_attributes(grafo, 'weight')
-    nx.draw_networkx_edge_labels(grafo, posicao, edge_labels=rotulos_arestas)
-
-    # Exibe o grafo
-    plt.show()
-
 
 def dfs(grafo, no_inicial, visitados=None):
-    """
-    Realiza uma busca em profundidade (DFS) no grafo.
-    Retorna as arestas do circuito Euleriano encontrado.
-    """
     resultado = []
     if visitados is None:
         visitados = set()
@@ -39,21 +16,13 @@ def dfs(grafo, no_inicial, visitados=None):
 
 
 def calcula_peso(grafo, caminho):
-    """
-    Calcula o peso total de um caminho no grafo.
-    """
     peso_total = 0
     for i in range(len(caminho) - 1):
         peso_total += grafo[caminho[i]][caminho[i + 1]]['weight']
     return peso_total
 
 
-# Implementação do algoritmo de Christofides
 def algoritmo_christofides(grafo, raiz):
-    """
-    Algoritmo de Christofides para o problema do caixeiro viajante.
-    Retorna o menor caminho encontrado e seu peso total.
-    """
     # Etapa 1: Calcula a árvore geradora mínima (Minimum Spanning Tree - MST)
     arvore_geradora = nx.minimum_spanning_tree(grafo, algorithm='prim')
     grafo_auxiliar = nx.MultiGraph(arvore_geradora)  # Grafo auxiliar para construir o circuito Euleriano
