@@ -32,20 +32,32 @@ O objetivo é calcular soluções aproximadas para o TSP, avaliar seu desempenho
 ├── requirements.txt        # Dependências do projeto
 └── README.md               # Este arquivo
 
+```
+
 Instalação e Configuração
 
 Clone o repositório:
+```plaintext
 
 git clone https://github.com/seu-usuario/tsp-comparador.git
 cd tsp-comparador
+
+```
+
 Crie e ative um ambiente virtual (opcional, mas recomendado):
 
+```plaintext
 python3 -m venv venv
 source venv/bin/activate   # No Windows: venv\Scripts\activate
+
+```
+
 Instale as dependências:
 
+```plaintext
 pip install -r requirements.txt
 Prepare os problemas:
+```
 
 Adicione instâncias TSP no diretório test_cases/ no formato .tsp.
 Atualize o arquivo problemas.csv com o formato:
@@ -57,13 +69,17 @@ exemplo2,5678.9
 Como Usar
 Executar com o Arquivo problemas.csv
 
+```python
 python main.py
+```
 
 O código lê os problemas listados no arquivo problemas.csv, executa os algoritmos selecionados (por padrão, bnb, tatt e chr), e salva os resultados no arquivo resultados_com_fator.csv.
 
 Executar com um Caso de Teste Específico
 
+```python
 python main.py exemplo1 1234.5 bnb tatt
+```
 
 Substitua exemplo1 pelo nome do problema (sem extensão .tsp), 1234.5 pela solução ótima, e informe os algoritmos desejados (bnb, tatt, chr).
 
